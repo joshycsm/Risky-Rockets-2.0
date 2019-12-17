@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Rockets from './components/Rockets'
 import FavoriteRockets from './components/FavoriteRockets'
+import SearchBar from './components/SearchBar'
 
 
 class App extends React.Component {
@@ -35,7 +36,13 @@ class App extends React.Component {
   }
 
   filterRockets = () => {
+    return this.state.rockets.filter(rocket => {
+      return (rocket.mission_name).toLowerCase().includes(this.state.searchTerm)
+    })
+  }
 
+  handleChange = (event) => {
+    return this.setState({ searchInput: event.target.value })
   }
 
   render() {
@@ -44,6 +51,8 @@ class App extends React.Component {
         <header>
           <h1>RISKY ROCKETS</h1>
         </header>
+        <SearchBar
+          handleChange={this.handleChange} />
         <main>
           <Rockets
             rockets={this.state.rockets}
