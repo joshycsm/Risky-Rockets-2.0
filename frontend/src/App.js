@@ -37,8 +37,9 @@ class App extends React.Component {
 
   filterRockets = () => {
     return this.state.rockets.filter(rocket => {
+      console.log(rocket.rocket.second_stage.payloads[0].nationality)
       return (rocket.mission_name.toLowerCase().includes(this.state.searchInput) ||
-        rocket.rocket.second_stage.payloads[0].nationality.includes(this.state.searchInput))
+      (rocket.rocket.second_stage.payloads[0].nationality ? rocket.rocket.second_stage.payloads[0].nationality.toLowerCase().includes(this.state.searchInput) : null))
     })
   }
 
