@@ -20,9 +20,9 @@ class App extends React.Component {
   
   addToFavorites = (rocket) => {
     const rocketIDs = this.state.favorites.map(rocket => {
-      return rocket.id
+      return rocket.flight_number
     })
-    if (!rocketIDs.includes(rocket.id)){
+    if (!rocketIDs.includes(rocket.flight_number)){
       this.setState({ favorites: [...this.state.favorites, rocket]})
     }
   }
@@ -37,7 +37,8 @@ class App extends React.Component {
 
   filterRockets = () => {
     return this.state.rockets.filter(rocket => {
-      return (rocket.mission_name).toLowerCase().includes(this.state.searchTerm)
+      return (rocket.mission_name.toLowerCase().includes(this.state.searchInput) ||
+        rocket.rocket.second_stage.payloads[0].nationality.includes(this.state.searchInput))
     })
   }
 
@@ -52,10 +53,11 @@ class App extends React.Component {
           <h1>RISKY ROCKETS</h1>
         </header>
         <SearchBar
+          rockets={this.filterRockets()}
           handleChange={this.handleChange} />
         <main>
           <Rockets
-            rockets={this.state.rockets}
+            rockets={this.filterRockets()}
             cardClick={this.addToFavorites} />
           <FavoriteRockets
             favorites={this.state.favorites}
