@@ -3,9 +3,11 @@ import RocketCard from './RocketCard'
 
 export default function Rockets({ rockets, cardClick }){
     const rocketCards = rockets.map(rocket => {
-        return <RocketCard
-            rocket={rocket}
-            cardClick={cardClick} />
+        if(rocket.links.flickr_images.length > 0){
+            return <RocketCard
+                rocket={rocket}
+                cardClick={cardClick} />
+        }
     })
     
     return(
