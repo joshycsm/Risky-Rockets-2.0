@@ -1,0 +1,3 @@
+class Rocket < ApplicationRecord
+    
+end

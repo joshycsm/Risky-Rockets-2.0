@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  launch_year: 1
+  rocket_name: MyString
+  nationality: MyString
+  launch_success: false
+  article_link: MyText
+  video_link: MyText
+  flickr_images: MyText
+  details: MyText
+  favorite: false
+
+two:
+  launch_year: 1
+  rocket_name: MyString
+  nationality: MyString
+  launch_success: false
+  article_link: MyText
+  video_link: MyText
+  flickr_images: MyText
+  details: MyText
+  favorite: false
