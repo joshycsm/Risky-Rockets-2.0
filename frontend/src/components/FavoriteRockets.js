@@ -10,7 +10,7 @@ export default function FavoriteRockets({ favorites, cardClick }){
     
     return(
         <div className='rocketsDiv'>
-            <h1>Safe </h1>
+            <h1>Safe Ships</h1>
             {favoriteCards}
         </div>
     )
